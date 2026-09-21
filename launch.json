@@ -1,0 +1,24 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "ConduitToken",
+    "name": "Conduit",
+    "symbol": "CNDT",
+    "decimals": 18
+  },
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "contracts": [
+    {
+      "contract": "PaymentChannel",
+      "constructorArgs": [
+        "$token"
+      ]
+    }
+  ],
+  "notes": "Conduit launches a fixed-supply CNDT token and a PaymentChannel application on Sepolia. PaymentChannel receives the deployed CNDT address in its constructor. Payers deposit CNDT for a payee with a future timeout; the payee may close using the payer's EIP-712 voucher for a cumulative amount, and the payer may reclaim the deposit from expiration onward. The pool pairs CNDT with native ETH and has no hook."
+}
